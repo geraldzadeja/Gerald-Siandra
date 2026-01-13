@@ -1,0 +1,75 @@
+### Get All Employees
+GET http://localhost:8080/api/employees
+
+###
+
+### Get Employee by ID
+GET http://localhost:8080/api/employees/1
+
+###
+
+### Create New Employee
+POST http://localhost:8080/api/employees
+Content-Type: application/json
+
+{
+  "firstName": "Test",
+  "lastName": "Employee",
+  "email": "test.employee@zadejaberisha.com",
+  "department": "IT",
+  "salary": 55000.00
+}
+
+###
+
+### Update Employee
+PUT http://localhost:8080/api/employees/1
+Content-Type: application/json
+
+{
+  "firstName": "Arben",
+  "lastName": "Hoxha",
+  "email": "arben.hoxha@zadejaberisha.com",
+  "department": "IT",
+  "salary": 80000.00
+}
+
+###
+
+### Delete Employee
+DELETE http://localhost:8080/api/employees/7
+
+###
+
+### Filter by Department
+GET http://localhost:8080/api/employees?department=IT
+
+###
+
+### Test 404 Error - Non-existent ID
+GET http://localhost:8080/api/employees/999
+
+###
+
+### Test Validation Error - Missing Fields
+POST http://localhost:8080/api/employees
+Content-Type: application/json
+
+{
+  "firstName": "",
+  "email": "invalid-email"
+}
+
+###
+
+### Test Duplicate Email Error
+POST http://localhost:8080/api/employees
+Content-Type: application/json
+
+{
+  "firstName": "Duplicate",
+  "lastName": "Test",
+  "email": "arben.hoxha@zadejaberisha.com",
+  "department": "IT",
+  "salary": 50000.00
+}
